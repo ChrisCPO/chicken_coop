@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.2.2"
+ruby "2.2.4"
 
 gem "autoprefixer-rails"
 gem "bourbon", "~> 4.2.0"
@@ -46,7 +46,7 @@ group :test do
   gem "database_cleaner"
   gem "formulaic"
   gem "launchy"
-  gem "shoulda-matchers", require: false
+  gem "shoulda-matchers"
   gem "simplecov", require: false
   gem "timecop"
   gem "webmock"

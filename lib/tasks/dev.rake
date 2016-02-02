@@ -7,6 +7,7 @@ if Rails.env.development? || Rails.env.test?
       include FactoryGirl::Syntax::Methods
 
       # create(:user, email: "user@example.com", password: "password")
+      create(:coop, name: "Uncle Bucks" )
     end
   end
 end
