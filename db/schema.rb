@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202215112) do
+ActiveRecord::Schema.define(version: 20160202225803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chickens", force: :cascade do |t|
+    t.integer  "coop_id"
+    t.integer  "sex",        default: 0
+    t.string   "name",       default: ""
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "coops", force: :cascade do |t|
     t.string   "name",       default: "", null: false
@@ -37,5 +45,14 @@ ActiveRecord::Schema.define(version: 20160202215112) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "foxes", force: :cascade do |t|
+    t.integer  "coop_id"
+    t.boolean  "hunger",     default: false
+    t.string   "name",       default: ""
+    t.string   "color",      default: ""
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
 end

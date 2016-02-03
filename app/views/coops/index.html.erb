@@ -1,0 +1,8 @@
+<H1> Chicken Coops </h1>
+<H3> Chicken Chicken Chicken.. </h3>
+<% link_to "new Chicken Coop", new_coop_path %>
+
+<H3> Coops </h3>
+<% @coops.each do |coop| %>
+  <%= link_to coop.name, coop_path(coop) %>
+<% end %>
