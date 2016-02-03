@@ -16,6 +16,7 @@ RSpec.describe Coop, type: :model do
 
           coop.door_open = true
           coop.valid?
+          binding.pry
 
           expect(coop.door_open?).to eq true
           expect(coop.errors.count).to eq 3
@@ -32,20 +33,19 @@ RSpec.describe Coop, type: :model do
           coop.fox = fox
 
           coop.door_open = false
-          coop.valid?
+          puts coop.valid?
 
+          puts coop.errors.full_messages
           expect(coop.door_open?).to eq false
+          expect(coop.valid?).to eq true
           expect(coop.errors.full_messages).not_to include "Chickens is invalid"
-
-          #validations are still happending on chicken, but the fox does not get
-          #valid? called on it
         end
       end
     end
   end
 
-    describe "relationships" do
-      it { should have_many(:chickens) }
-      it { should have_one(:fox) }
-    end
+  describe "relationships" do
+    it { should have_many(:chickens) }
+    it { should have_one(:fox) }
   end
+end
